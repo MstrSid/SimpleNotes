@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import by.kos.simplenotes.R
 import by.kos.simplenotes.databinding.FragmentAddNewNoteBinding
 import by.kos.simplenotes.model.AppNote
 import by.kos.simplenotes.utils.APP_ACTIVITY
 import by.kos.simplenotes.utils.showToast
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class AddNewNoteFragment : Fragment() {
 
@@ -25,13 +28,15 @@ class AddNewNoteFragment : Fragment() {
         _binding = FragmentAddNewNoteBinding.inflate(inflater, container, false)
         mViewModel = ViewModelProvider(this).get(AddNewNoteViewModel::class.java)
         binding.btnAddNote.setOnClickListener {
-            val name = binding.btnAddNote.text.toString()
-            val text = binding.inputNameNote.text.toString()
+            val name = binding.inputNameNote.text.toString()
+            val text = binding.inputTextNote.text.toString()
             if(name.isEmpty()){
                 showToast(getString(R.string.toast_enter_name))
             } else{
                 mViewModel.insert(AppNote(name = name, text = text)){
-                    APP_ACTIVITY.mNavController.navigate(R.id.action_addNewNoteFragment_to_mainFragment)
+                    lifecycleScope.launch(Dispatchers.Main) {
+                        APP_ACTIVITY.mNavController.navigate(R.id.action_addNewNoteFragment_to_mainFragment)
+                    }
                 }
             }
         }
