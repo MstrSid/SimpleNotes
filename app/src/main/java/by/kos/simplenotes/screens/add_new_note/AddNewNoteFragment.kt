@@ -12,8 +12,10 @@ import by.kos.simplenotes.databinding.FragmentAddNewNoteBinding
 import by.kos.simplenotes.model.AppNote
 import by.kos.simplenotes.utils.APP_ACTIVITY
 import by.kos.simplenotes.utils.showToast
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AddNewNoteFragment : Fragment() {
 
@@ -34,8 +36,8 @@ class AddNewNoteFragment : Fragment() {
                 showToast(getString(R.string.toast_enter_name))
             } else{
                 mViewModel.insert(AppNote(name = name, text = text)){
-                    lifecycleScope.launch(Dispatchers.Main) {
-                        APP_ACTIVITY.mNavController.navigate(R.id.action_addNewNoteFragment_to_mainFragment)
+                    CoroutineScope(Dispatchers.Main).launch {
+                            APP_ACTIVITY.mNavController.navigate(R.id.action_addNewNoteFragment_to_mainFragment)
                     }
                 }
             }
