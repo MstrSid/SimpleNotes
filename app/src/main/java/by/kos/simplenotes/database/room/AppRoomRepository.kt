@@ -10,9 +10,11 @@ class AppRoomRepository(private val appRoomDAO: AppRoomDAO): DatabaseRepository 
 
     override suspend fun insert(note: AppNote, onSuccess: () -> Unit) {
         appRoomDAO.insert(note)
+        onSuccess()
     }
 
     override suspend fun delete(note: AppNote, onSuccess: () -> Unit) {
         appRoomDAO.delete(note)
+        onSuccess()
     }
 }
