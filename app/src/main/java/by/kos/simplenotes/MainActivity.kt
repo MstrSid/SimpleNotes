@@ -2,7 +2,6 @@ package by.kos.simplenotes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import by.kos.simplenotes.databinding.ActivityMainBinding
@@ -11,7 +10,7 @@ import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
     lateinit var mToolbar: MaterialToolbar
-    lateinit var mNavController: NavController
+    lateinit var navController: NavController
 
     private lateinit var binding: ActivityMainBinding
 
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         APP_ACTIVITY = this
         mToolbar = binding.toolbar
-        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         setSupportActionBar(mToolbar)
     }
 }

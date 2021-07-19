@@ -3,6 +3,7 @@ package by.kos.simplenotes.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "notes_table")
 data class AppNote(
@@ -15,4 +16,4 @@ data class AppNote(
 
     @ColumnInfo
     val text: String = ""
-)
+) : Serializable
