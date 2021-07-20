@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_room"
+        android:id="@+id/btnRoom"
         android:layout_width="@dimen/start_btn_size"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/app_margin"
@@ -30,12 +30,66 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button_firebase"
+        android:id="@+id/btnFirebase"
         android:layout_width="@dimen/start_btn_size"
         android:layout_height="wrap_content"
         android:text="@string/btn_firebase"
         android:layout_margin="@dimen/app_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_room" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRoom" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tiTextEmailAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/btnFirebase"
+        app:layout_constraintStart_toStartOf="@+id/btnFirebase"
+        app:layout_constraintTop_toBottomOf="@+id/btnFirebase"
+        app:layout_constraintBottom_toTopOf="@+id/tiTextPassword"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/email"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            android:background="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tiTextPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/tiTextEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/tiTextEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/tiTextEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        android:hint="@string/password"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:background="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="@+id/tiTextPassword"
+        app:layout_constraintStart_toStartOf="@+id/tiTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tiTextPassword"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

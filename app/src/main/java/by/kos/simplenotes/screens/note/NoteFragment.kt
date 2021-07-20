@@ -1,6 +1,7 @@
 package by.kos.simplenotes.screens.note
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -26,13 +27,13 @@ class NoteFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentNoteBinding.inflate(inflater, container, false)
         mCurrentNone = arguments?.getSerializable("note") as AppNote
-        initialization()
+        Log.d("notedetails", mCurrentNone.toString())
         return binding.root
     }
 
     override fun onStart() {
         super.onStart()
-
+        initialization()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

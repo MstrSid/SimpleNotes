@@ -9,4 +9,8 @@
     <string name="menu_exit_txt">Exit</string>
     <string name="menu_delete_txt">Delete</string>
     <string name="toast_enter_name">Input note name</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
+    <string name="Input_blank_toast">Input email and password</string>
 </resources>
